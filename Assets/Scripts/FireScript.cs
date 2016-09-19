@@ -18,8 +18,6 @@ public class FireScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("Fire1")) {
-			Debug.Log ("rotation: " + firetube.transform.rotation);
-			Debug.Log ("eulerAngles: " + firetube.transform.eulerAngles);
 			GameObject newPotato = (GameObject)Instantiate (potatoPrefab, firetube.transform.position, 
 				Quaternion.Euler (firetube.transform.eulerAngles.x, firetube.transform.eulerAngles.y, firetube.transform.eulerAngles.z));
 			newPotato.transform.eulerAngles = firetube.transform.eulerAngles;
@@ -27,7 +25,6 @@ public class FireScript : MonoBehaviour {
 			newPotato.name = "potatofire";
 			Rigidbody potatoRigidBody = newPotato.GetComponent<Rigidbody> ();
 			potatoRigidBody.AddForce (potatoRigidBody.transform.up * shotForce);
-
 			PlayFireSound ();
 		} 
 	}
