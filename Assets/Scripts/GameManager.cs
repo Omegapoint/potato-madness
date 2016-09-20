@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager gm;
 
 	public Text scoreText;
+	public Text shotsLeftText;
 	public int numberOfAvailabePotatoes = 10;
 	public bool gameOver = false;
 
@@ -19,9 +20,9 @@ public class GameManager : MonoBehaviour {
 		if (gm == null) {
 			gm = this.gameObject.GetComponent<GameManager>();
 		}
-
 		totalNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
 		currentNumberOfBricks = totalNumberOfBricks;
+
 	}
 
 	public void shotFired() {
@@ -33,8 +34,9 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		shotsLeftText.text = (numberOfAvailabePotatoes - numberOfPotatoesShot)  + " shots left";
 		currentNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
-		scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " av " + totalNumberOfBricks;
+		scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " of " + totalNumberOfBricks;
 	}
 
 }
