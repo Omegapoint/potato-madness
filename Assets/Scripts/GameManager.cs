@@ -18,6 +18,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
-		scoreText.text = currentNumberOfBricks + " av " + totalNumberOfBricks;
+		scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " av " + totalNumberOfBricks;
 	}
 }
