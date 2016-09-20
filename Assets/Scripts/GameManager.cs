@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour {
 	public int numberOfAvailabePotatoes = 10;
 	public bool gameOver = false;
 
+	public GameObject restartButtons;
+	public string restartLevelToLoad;
+
 	private int totalNumberOfBricks;
 	private int currentNumberOfBricks;
 	private int numberOfPotatoesShot;
@@ -23,12 +26,16 @@ public class GameManager : MonoBehaviour {
 		totalNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
 		currentNumberOfBricks = totalNumberOfBricks;
 
+		if (restartButtons) {
+			restartButtons.SetActive (false);
+		}
+
 	}
 
 	public void shotFired() {
 		numberOfPotatoesShot++;
 		if (numberOfPotatoesShot == numberOfAvailabePotatoes) {
-			gameOver = true;
+			EndGame ();
 		}
 	}
 
@@ -37,6 +44,11 @@ public class GameManager : MonoBehaviour {
 		shotsLeftText.text = (numberOfAvailabePotatoes - numberOfPotatoesShot)  + " shots left";
 		currentNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
 		scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " of " + totalNumberOfBricks;
+	}
+
+	void EndGame() {
+		gameOver = true;
+		restartButtons.SetActive (true);
 	}
 
 	void Awake() {
