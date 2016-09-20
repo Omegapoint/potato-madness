@@ -19,7 +19,6 @@ public class LookAtScript : MonoBehaviour {
 	void Update () {//makes the camera rotate around "point" coords, rotating around its Y axis, 20 degrees per second times the speed modifier
 		float changeHorizontalAxis = CrossPlatformInputManager.GetAxis("Horizontal");
 		float changeVerticalAxis = -CrossPlatformInputManager.GetAxis("Vertical");
-		//point.Set (point.x, point.y - changeVerticalAxis, point.z);
 		point.Set (point.x, point.y + getLimitedVerticalChange(changeVerticalAxis), point.z);
 		transform.LookAt(point);
 		transform.RotateAround(point, new Vector3(0.0f, changeHorizontalAxis, 0.0f), rotationStep);
