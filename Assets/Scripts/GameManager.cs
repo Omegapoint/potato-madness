@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour {
 	public bool gameOver = false;
 
 	public GameObject restartButtons;
-	public string restartLevelToLoad;
+	public GameObject startGameButton;
 
 	private int totalNumberOfBricks;
 	private int currentNumberOfBricks;
 	private int numberOfPotatoesShot;
+
+	private string[] levels = { "Level 1", "Level 2" };
+	private int currentLevel = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -26,9 +29,7 @@ public class GameManager : MonoBehaviour {
 		totalNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
 		currentNumberOfBricks = totalNumberOfBricks;
 
-		if (restartButtons) {
-			restartButtons.SetActive (false);
-		}
+		UpdateGameState ();
 
 	}
 
@@ -56,7 +57,18 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void StartGame() {
-		Application.LoadLevel ("Level 1");
+		currentLevel = 0;
+		UpdateGameState ();
+		Application.LoadLevel (levels[currentLevel]);
 	}
+
+	private void UpdateGameState() {
+		startGameButton.SetActive (currentLevel == -1);
+		restartButtons.SetActive (gameOver);
+		scoreText.enabled = !gameOver && currentLevel >= 0;
+		shotsLeftText.enabled = !gameOver && currentLevel >= 0;	
+	}
+
+
 
 }
