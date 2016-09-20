@@ -51,4 +51,12 @@ public class GameManager : MonoBehaviour {
 		restartButtons.SetActive (true);
 	}
 
+	void Awake() {
+		DontDestroyOnLoad(transform.gameObject);
+	}
+
+	public void StartGame() {
+		Application.LoadLevel ("Level 1");
+	}
+
 }
