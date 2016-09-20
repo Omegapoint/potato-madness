@@ -245,7 +245,7 @@ MonoBehaviour:
   target: {fileID: 2096315112}
   rotationStep: 3
   positiveVerticalViewLimit: 4
-  negativeVerticalViewLimit: -8
+  negativeVerticalViewLimit: -15
 --- !u!114 &147458978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012793997146, guid: 696e65c4f2ee240d591e43b2b5739279, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.85
+      value: -4.07
       objectReference: {fileID: 0}
     - target: {fileID: 4000012793997146, guid: 696e65c4f2ee240d591e43b2b5739279, type: 2}
       propertyPath: m_LocalPosition.z
