@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class FireScript : MonoBehaviour {
 
 	public GameObject firetube;
+	public GameObject spawnPoint;
 	public GameObject potatoPrefab;
 	public AudioClip[] fireSoundClips;
 	public int shotForce = 3000;
@@ -18,8 +19,8 @@ public class FireScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("Fire1")) {
-			GameObject newPotato = (GameObject)Instantiate (potatoPrefab, firetube.transform.position, 
-				Quaternion.Euler (firetube.transform.eulerAngles.x, firetube.transform.eulerAngles.y, firetube.transform.eulerAngles.z));
+			GameObject newPotato = (GameObject)Instantiate (potatoPrefab, spawnPoint.transform.position, 
+				Quaternion.Euler (spawnPoint.transform.eulerAngles.x, spawnPoint.transform.eulerAngles.y, spawnPoint.transform.eulerAngles.z));
 			newPotato.transform.eulerAngles = firetube.transform.eulerAngles;
 
 			newPotato.name = "potatofire";
