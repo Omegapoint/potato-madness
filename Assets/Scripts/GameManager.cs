@@ -39,4 +39,12 @@ public class GameManager : MonoBehaviour {
 		scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " of " + totalNumberOfBricks;
 	}
 
+	void Awake() {
+		DontDestroyOnLoad(transform.gameObject);
+	}
+
+	public void StartGame() {
+		Application.LoadLevel ("Level 1");
+	}
+
 }
