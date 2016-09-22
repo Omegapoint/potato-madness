@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	public void shotFired() {
+	public void ShotFired() {
 		numberOfPotatoesShot++;
 		if (numberOfPotatoesShot == numberOfAvailabePotatoes) {
 			EndGame ();
