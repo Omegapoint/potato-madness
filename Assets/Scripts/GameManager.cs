@@ -2,17 +2,16 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : Singleton<GameManager> {
 
-	public static GameManager gm;
-
-	public Text scoreText;
-	public Text shotsLeftText;
 	public int numberOfAvailabePotatoes = 10;
 	public bool gameOver = false;
 
 	public GameObject restartButtons;
 	public GameObject startGameButton;
+
+	private Text scoreText;
+	private Text shotsLeftText;
 
 	private int totalNumberOfBricks;
 	private int currentNumberOfBricks;
@@ -21,11 +20,10 @@ public class GameManager : MonoBehaviour {
 	private string[] levels = { "Level 1", "Level 2" };
 	private int currentLevel = -1;
 
+	protected GameManager() {}
+
 	// Use this for initialization
 	void Start () {
-		if (gm == null) {
-			gm = this.gameObject.GetComponent<GameManager>();
-		}
 		totalNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
 		currentNumberOfBricks = totalNumberOfBricks;
 
@@ -63,12 +61,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void UpdateGameState() {
+		scoreText = GameObject.FindGameObjectWithTag ("scoreText").GetComponent<Text>();
+		shotsLeftText = GameObject.FindGameObjectWithTag ("shotsLeftText").GetComponent<Text>();
+
 		startGameButton.SetActive (currentLevel == -1);
 		restartButtons.SetActive (gameOver);
 		scoreText.enabled = !gameOver && currentLevel >= 0;
-		shotsLeftText.enabled = !gameOver && currentLevel >= 0;	
+		shotsLeftText.enabled = !gameOver && currentLevel >= 0;
 	}
-
-
-
+		
 }
