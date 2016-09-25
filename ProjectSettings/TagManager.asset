@@ -8,6 +8,8 @@ TagManager:
   - block
   - scoreText
   - shotsLeftText
+  - restartGameButton
+  - startGameButton
   layers:
   - Default
   - TransparentFX

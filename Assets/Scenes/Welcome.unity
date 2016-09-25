@@ -103,7 +103,7 @@ GameObject:
   - 114: {fileID: 13883774}
   m_Layer: 5
   m_Name: RestartGameButton
-  m_TagString: Untagged
+  m_TagString: restartGameButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,11 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5257c243397ef4591a85dd4367de4623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1990847737}
-  shotsLeftText: {fileID: 1990847736}
   numberOfAvailabePotatoes: 10
   gameOver: 0
-  restartButtons: {fileID: 13883772}
+  restartGameButton: {fileID: 0}
   startGameButton: {fileID: 275447659}
 --- !u!4 &67482874
 Transform:
@@ -273,7 +271,7 @@ GameObject:
   - 114: {fileID: 275447661}
   m_Layer: 5
   m_Name: StartGameButton
-  m_TagString: Untagged
+  m_TagString: startGameButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -844,15 +842,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 229efff3c62b74419b541eae42518798, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1990847736 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000013280033830, guid: 229efff3c62b74419b541eae42518798,
-    type: 2}
-  m_PrefabInternal: {fileID: 1990847735}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!114 &1990847737 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000010033239704, guid: 229efff3c62b74419b541eae42518798,
-    type: 2}
-  m_PrefabInternal: {fileID: 1990847735}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}

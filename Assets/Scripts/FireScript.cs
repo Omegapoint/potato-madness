@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class FireScript : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class FireScript : MonoBehaviour {
 			Rigidbody potatoRigidBody = newPotato.GetComponent<Rigidbody> ();
 			potatoRigidBody.AddForce (potatoRigidBody.transform.up * shotForce);
 			PlayFireSound ();
-			GameManager.Instance.ShotFired ();
+			GameManager.gm.ShotFired ();
 		} 
 	}
 
