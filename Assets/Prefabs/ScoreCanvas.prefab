@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000010033239704}
   m_Layer: 5
   m_Name: ScoreText
-  m_TagString: Untagged
+  m_TagString: scoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - 114: {fileID: 114000013280033830}
   m_Layer: 5
   m_Name: ShotsLeftText
-  m_TagString: Untagged
+  m_TagString: shotsLeftText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
