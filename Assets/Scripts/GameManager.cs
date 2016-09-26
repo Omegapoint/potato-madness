@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour {
 	public int numberOfAvailabePotatoes = 10;
 	public bool gameOver = false;
 
-	public GameObject restartGameButton;
-	public GameObject startGameButton;
+	private GameObject restartGameButton;
+	private GameObject startGameButton;
 
 	private Text scoreText;
 	private Text shotsLeftText;
@@ -21,10 +21,8 @@ public class GameManager : MonoBehaviour {
 	private int currentNumberOfBricks;
 	private int numberOfPotatoesShot;
 
-	// TODO The SceneManager has a scene build index that could be used instead of currentLevel
-	// TODO The SceneManager could also most likely replace the levels array
-	private string[] levels = { "Level 1", "Level 2" };
-	private int currentLevel = -1;
+	private int level1Index = 1;
+	private int welcomeScreenIndex = 0;
 
 	protected GameManager() {}
 
@@ -64,8 +62,7 @@ public class GameManager : MonoBehaviour {
 	}
 		
 	public void StartGame() {
-		currentLevel = 0;
-		SceneManager.LoadScene (levels [currentLevel]);
+		SceneManager.LoadScene (level1Index);
 	}
 
 	void OnSceneLoaded (Scene scene, Scene scene2) {
@@ -74,7 +71,9 @@ public class GameManager : MonoBehaviour {
 
 	// TODO Cleanup, this is getting messy
 	private void UpdateGameState() {
-		startGameButton.SetActive (currentLevel == -1);
+		int activeSceneIndex = SceneManager.GetActiveScene ().buildIndex;
+
+		startGameButton.SetActive (activeSceneIndex == welcomeScreenIndex);
 		restartGameButton.SetActive (gameOver);
 
 		totalNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
@@ -83,7 +82,7 @@ public class GameManager : MonoBehaviour {
 		GameObject score = GameObject.FindGameObjectWithTag ("scoreText");
 		GameObject shotsLeft = GameObject.FindGameObjectWithTag("shotsLeftText");
 
-		if (currentLevel == -1) {
+		if (activeSceneIndex == welcomeScreenIndex) {
 			score.SetActive (false);
 			shotsLeft.SetActive (false);
 		} else {
@@ -94,8 +93,8 @@ public class GameManager : MonoBehaviour {
 		scoreText = score.GetComponent<Text>();
 		shotsLeftText = shotsLeft.GetComponent<Text>();
 
-		scoreText.enabled = !gameOver && currentLevel >= 0;
-		shotsLeftText.enabled = !gameOver && currentLevel >= 0;
+		scoreText.enabled = !gameOver && activeSceneIndex >= level1Index;
+		shotsLeftText.enabled = !gameOver && activeSceneIndex >= level1Index;
 	}
 		
 }
