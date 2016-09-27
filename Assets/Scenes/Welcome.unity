@@ -241,8 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfAvailabePotatoes: 10
   gameOver: 0
-  restartGameButton: {fileID: 0}
-  startGameButton: {fileID: 275447659}
+  levels:
+  - {fileID: 11400000, guid: bceded0de0c5e4e21bef34977b691012, type: 2}
 --- !u!4 &67482874
 Transform:
   m_ObjectHideFlags: 0

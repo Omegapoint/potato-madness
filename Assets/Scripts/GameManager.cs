@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public int numberOfAvailabePotatoes = 10;
 	public bool gameOver = false;
 
+	public GameLevel[] levels;
+
 	private GameObject restartGameButton;
 	private GameObject startGameButton;
 
