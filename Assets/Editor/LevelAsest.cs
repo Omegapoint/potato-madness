@@ -2,11 +2,9 @@
 using UnityEditor;
 using System;
 
-public class LevelAsest
-{
+public class LevelAssets {
 	[MenuItem("Assets/Create/GameLevel")]
-	public static void CreateAsset ()
-	{
+	public static void CreateAsset () {
 		CustomAssetUtility.CreateAsset<GameLevel>();
 	}
 }

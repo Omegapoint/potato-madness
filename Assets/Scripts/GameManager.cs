@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager gm;
 
-	public int numberOfAvailabePotatoes = 10;
 	public bool gameOver = false;
 
 	public GameLevel[] levels;
@@ -24,6 +23,7 @@ public class GameManager : MonoBehaviour {
 	private int numberOfPotatoesShot;
 
 	private int level1Index = 1;
+	private int currentLevelIndex = 0;
 	private int welcomeScreenIndex = 0;
 
 	protected GameManager() {}
@@ -37,16 +37,20 @@ public class GameManager : MonoBehaviour {
 
 	public void ShotFired() {
 		numberOfPotatoesShot++;
-		if (numberOfPotatoesShot == numberOfAvailabePotatoes) {
+		if (numberOfPotatoesShot == CurrentLevel().numberOfBalls) {
 			EndGame ();
 		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-		shotsLeftText.text = (numberOfAvailabePotatoes - numberOfPotatoesShot)  + " shots left";
-		currentNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
-		scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " of " + totalNumberOfBricks;
+		// shotsLeftText.text = (numberOfAvailabePotatoes - numberOfPotatoesShot)  + " shots left";
+		// currentNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
+		// scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " of " + totalNumberOfBricks;
+	}
+
+	GameLevel CurrentLevel() {
+		return levels [currentLevelIndex];
 	}
 
 	void EndGame() {
@@ -64,7 +68,12 @@ public class GameManager : MonoBehaviour {
 	}
 		
 	public void StartGame() {
-		SceneManager.LoadScene (level1Index);
+		LevelManager manager = gameObject.GetComponent<LevelManager> ();
+		if (manager == null) {
+			manager = gameObject.AddComponent<LevelManager> ();
+		}
+		Debug.Log (manager);
+		manager.Load (levels [currentLevelIndex]);
 	}
 
 	void OnSceneLoaded (Scene scene, Scene scene2) {
@@ -73,9 +82,8 @@ public class GameManager : MonoBehaviour {
 
 	// TODO Cleanup, this is getting messy
 	private void UpdateGameState() {
-		int activeSceneIndex = SceneManager.GetActiveScene ().buildIndex;
 
-		startGameButton.SetActive (activeSceneIndex == welcomeScreenIndex);
+		startGameButton.SetActive (currentLevelIndex == welcomeScreenIndex);
 		restartGameButton.SetActive (gameOver);
 
 		totalNumberOfBricks = GameObject.FindGameObjectsWithTag ("block").Length;
@@ -84,6 +92,7 @@ public class GameManager : MonoBehaviour {
 		GameObject score = GameObject.FindGameObjectWithTag ("scoreText");
 		GameObject shotsLeft = GameObject.FindGameObjectWithTag("shotsLeftText");
 
+		/*
 		if (activeSceneIndex == welcomeScreenIndex) {
 			score.SetActive (false);
 			shotsLeft.SetActive (false);
@@ -92,11 +101,16 @@ public class GameManager : MonoBehaviour {
 			shotsLeft.SetActive (true);
 		}
 
-		scoreText = score.GetComponent<Text>();
+		
 		shotsLeftText = shotsLeft.GetComponent<Text>();
 
-		scoreText.enabled = !gameOver && activeSceneIndex >= level1Index;
+		
 		shotsLeftText.enabled = !gameOver && activeSceneIndex >= level1Index;
+		*/
+		scoreText = score.GetComponent<Text>();
+		if (scoreText != null) {
+			scoreText.enabled = !gameOver && currentLevelIndex >= level1Index;
+		}
 	}
 		
 }

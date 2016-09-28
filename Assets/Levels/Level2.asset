@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9de78bbc261742e796e68bfdc003614, type: 3}
-  m_Name: Level1
+  m_Name: Level2
   m_EditorClassIdentifier: 
-  numberOfBalls: 10
-  skybox: {fileID: 2100000, guid: 6f18608325eef470da8809ff096a97da, type: 2}
+  numberOfBalls: 15
+  skybox: {fileID: 2100000, guid: 3a32d0bcafd544b72a8c2ed00497cf8c, type: 2}
   levelBlocks: {fileID: 1000011426440394, guid: ff472440cde6c44d2859a115657ea210,
     type: 2}
