@@ -15,3 +15,4 @@ MonoBehaviour:
   skybox: {fileID: 2100000, guid: 3a32d0bcafd544b72a8c2ed00497cf8c, type: 2}
   levelBlocks: {fileID: 1000011426440394, guid: ff472440cde6c44d2859a115657ea210,
     type: 2}
+  sceneAsset: {fileID: 102900000, guid: 70a1b519f691c40cd8f580b16dcf06c0, type: 3}

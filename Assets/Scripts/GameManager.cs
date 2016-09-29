@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Linq;
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour {
 		// scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " of " + totalNumberOfBricks;
 	}
 
-	GameLevel CurrentLevel() {
+	public GameLevel CurrentLevel() {
 		return levels [currentLevelIndex];
 	}
 
@@ -68,17 +69,16 @@ public class GameManager : MonoBehaviour {
 	}
 		
 	public void StartGame() {
-		LevelManager manager = gameObject.GetComponent<LevelManager> ();
-		if (manager == null) {
-			manager = gameObject.AddComponent<LevelManager> ();
-		}
-		Debug.Log (manager);
-		manager.Load (levels [currentLevelIndex]);
+		Debug.Log ("Starting game called");
+		SceneAsset scene = CurrentLevel ().sceneAsset;
+		SceneManager.LoadScene (scene.name);
 	}
 
 	void OnSceneLoaded (Scene scene, Scene scene2) {
 		UpdateGameState ();
 	}
+
+
 
 	// TODO Cleanup, this is getting messy
 	private void UpdateGameState() {
@@ -112,5 +112,6 @@ public class GameManager : MonoBehaviour {
 			scoreText.enabled = !gameOver && currentLevelIndex >= level1Index;
 		}
 	}
+		
 		
 }

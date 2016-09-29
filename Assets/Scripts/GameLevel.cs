@@ -11,4 +11,6 @@ public class GameLevel : ScriptableObject {
 	public Material skybox;
 	public GameObject levelBlocks;
 
+	public SceneAsset sceneAsset;
+
 }

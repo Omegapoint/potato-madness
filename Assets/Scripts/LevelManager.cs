@@ -6,31 +6,10 @@ public class LevelManager : MonoBehaviour {
 
 	private GameLevel level;
 
-
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	public void Load(GameLevel level) {
-		this.level = level;
-
-		StartCoroutine(LoadNewScene());
-	}
-
-
-	IEnumerator LoadNewScene() {
-		Scene scene = SceneManager.GetSceneByName("LevelScene");
-		AsyncOperation async = SceneManager.LoadSceneAsync("LevelScene");
-
-		while (!async.isDone) {
-			yield return null;
-		}
+		Debug.Log ("In LevelManager.Start()");
+		level = GameManager.gm.CurrentLevel ();
 
 		RenderSettings.skybox = level.skybox;
 		GameObject table = GameObject.Find ("Table");
@@ -40,4 +19,12 @@ public class LevelManager : MonoBehaviour {
 		boxes.transform.position = table.transform.position;
 		boxes.transform.localScale = level.levelBlocks.transform.localScale;
 	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+		
+
+
 }
