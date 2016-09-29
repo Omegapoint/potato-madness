@@ -20,8 +20,8 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void ShotFired() {
+		Debug.Log ("ShotFired LevelManager");
 		numberOfPotatoesShot++;
-		Text[] texts = scoreCanvas.GetComponentsInChildren<Text>();
 		if (numberOfPotatoesShot == level.numberOfBalls) {
 			GameManager.gm.EndGame ();
 		}
@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour {
 		GameObject table = GameObject.Find ("Table");
 
 		GameObject boxes = Instantiate (level.levelBlocks, Vector3.zero, Quaternion.identity) as GameObject;
+		scoreCanvas = Instantiate(level.scoreCanvas, Vector3.zero, Quaternion.identity) as Canvas;
 		boxes.transform.parent = table.transform;
 		boxes.transform.position = table.transform.position;
 		boxes.transform.localScale = level.levelBlocks.transform.localScale;

@@ -22,7 +22,7 @@ public class ShotsLeft : MonoBehaviour {
 	}
 
 	void UpdateText() {
-		scoreText.text = GameManager.gm.currentLevel.ShotsLeft() + " shots left";
+		scoreText.text = GameManager.gm.CurrentLevelManager().ShotsLeft() + " shots left";
 	}
 
 	void ShotFired ()

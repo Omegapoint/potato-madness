@@ -54,7 +54,11 @@ public class GameManager : MonoBehaviour {
 		return levels [currentLevelIndex];
 	}
 
-	void EndGame() {
+	public LevelManager CurrentLevelManager() {
+		return Camera.main.GetComponent<LevelManager>();
+	}
+
+	public void EndGame() {
 		gameOver = true;
 		restartGameButton.SetActive (true);
 	}

@@ -28,7 +28,6 @@ public class FireScript : MonoBehaviour {
 			Rigidbody potatoRigidBody = newPotato.GetComponent<Rigidbody> ();
 			potatoRigidBody.AddForce (potatoRigidBody.transform.up * shotForce);
 			PlayFireSound ();
-			//GameManager.gm.currentLevel.ShotFired ();
 			EventManager.TriggerEvent ("shotFired");
 		} 
 	}
