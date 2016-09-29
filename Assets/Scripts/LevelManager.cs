@@ -26,6 +26,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public int ShotsLeft() {
+		// TODO We should check if the game is finished, and not just check if we run out of ammo.
+		if (level.numberOfBalls == numberOfPotatoesShot) {
+			GameManager.gm.NextLevel ();
+		}
 		return level.numberOfBalls - numberOfPotatoesShot;
 	}
 		

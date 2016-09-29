@@ -32,6 +32,15 @@ public class GameManager : MonoBehaviour {
 		return Camera.main.GetComponent<LevelManager>();
 	}
 
+	public void NextLevel() {
+		if (currentLevelIndex + 1 < levels.Count()) {
+			currentLevelIndex++;
+			StartGame ();
+		} else {
+			EndGame ();
+		}
+	}
+
 	public void EndGame() {
 		gameOver = true;
 	}

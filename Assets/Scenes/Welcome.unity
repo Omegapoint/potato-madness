@@ -243,6 +243,8 @@ MonoBehaviour:
   gameOver: 0
   levels:
   - {fileID: 11400000, guid: bceded0de0c5e4e21bef34977b691012, type: 2}
+  - {fileID: 11400000, guid: 8a2c26a20c0fb4de8920ef7ccff5f6f4, type: 2}
+  - {fileID: 11400000, guid: 0a14efaa64bc648faa77ecec092b332c, type: 2}
 --- !u!4 &67482874
 Transform:
   m_ObjectHideFlags: 0
