@@ -1,8 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Events;
 
 public class ScoreText : MonoBehaviour {
+
+	private Text scoreText;
+
+	void Start() {
+		scoreText = gameObject.GetComponent<Text>();
+		UpdateText ();
+	}
 
 	void OnEnable ()
 	{
@@ -16,7 +24,13 @@ public class ScoreText : MonoBehaviour {
 
 	void TargetKnockedDown ()
 	{
-		Debug.Log ("TargetKnockedDown Function was called!");
+		UpdateText ();
 	}
+
+	void UpdateText() {
+		scoreText.text = GameManager.gm.CurrentLevelManager().TargetsLeft() + " of " + 
+			GameManager.gm.CurrentLevelManager().StartingNumberOfTargets() + " left";
+	}
+
 
 }
