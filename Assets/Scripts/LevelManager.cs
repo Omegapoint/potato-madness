@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	private GameLevel level;
-	private Canvas scoreCanvas;
 	private int numberOfPotatoesShot;
 
 	void OnEnable ()
@@ -38,7 +37,7 @@ public class LevelManager : MonoBehaviour {
 		GameObject table = GameObject.Find ("Table");
 
 		GameObject boxes = Instantiate (level.levelBlocks, Vector3.zero, Quaternion.identity) as GameObject;
-		scoreCanvas = Instantiate(level.scoreCanvas, Vector3.zero, Quaternion.identity) as Canvas;
+		Instantiate(level.scoreCanvas, Vector3.zero, Quaternion.identity);
 		boxes.transform.parent = table.transform;
 		boxes.transform.position = table.transform.position;
 		boxes.transform.localScale = level.levelBlocks.transform.localScale;
