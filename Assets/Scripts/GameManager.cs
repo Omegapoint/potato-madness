@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 
 	public bool gameOver = false;
 
+	public LevelManager currentLevel;
+
 	public GameLevel[] levels;
 
 	private GameObject restartGameButton;
@@ -34,14 +36,7 @@ public class GameManager : MonoBehaviour {
 			gm = this.gameObject.GetComponent<GameManager>();
 		}
 	}
-
-	public void ShotFired() {
-		numberOfPotatoesShot++;
-		if (numberOfPotatoesShot == CurrentLevel().numberOfBalls) {
-			EndGame ();
-		}
-	}
-
+		
 	// Update is called once per frame
 	void Update () {
 		// shotsLeftText.text = (numberOfAvailabePotatoes - numberOfPotatoesShot)  + " shots left";
@@ -53,7 +48,7 @@ public class GameManager : MonoBehaviour {
 		return levels [currentLevelIndex];
 	}
 
-	void EndGame() {
+	public void EndGame() {
 		gameOver = true;
 		restartGameButton.SetActive (true);
 	}
@@ -68,12 +63,12 @@ public class GameManager : MonoBehaviour {
 	}
 		
 	public void StartGame() {
-		LevelManager manager = gameObject.GetComponent<LevelManager> ();
-		if (manager == null) {
-			manager = gameObject.AddComponent<LevelManager> ();
+		currentLevel = gameObject.GetComponent<LevelManager> ();
+		if (currentLevel == null) {
+			currentLevel = gameObject.AddComponent<LevelManager> ();
 		}
-		Debug.Log (manager);
-		manager.Load (levels [currentLevelIndex]);
+		Debug.Log (currentLevel);
+		currentLevel.Load (levels [currentLevelIndex]);
 	}
 
 	void OnSceneLoaded (Scene scene, Scene scene2) {

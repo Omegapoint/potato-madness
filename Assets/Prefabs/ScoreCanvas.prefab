@@ -21,6 +21,7 @@ GameObject:
   - 224: {fileID: 224000011842390142}
   - 222: {fileID: 222000013870925424}
   - 114: {fileID: 114000010033239704}
+  - 114: {fileID: 114000014016442572}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: scoreText
@@ -39,6 +40,7 @@ GameObject:
   - 223: {fileID: 223000011566195726}
   - 114: {fileID: 114000011986887850}
   - 114: {fileID: 114000011737548156}
+  - 114: {fileID: 114000013716601660}
   m_Layer: 5
   m_Name: ScoreCanvas
   m_TagString: Untagged
@@ -56,6 +58,7 @@ GameObject:
   - 224: {fileID: 224000013454430400}
   - 222: {fileID: 222000010740271220}
   - 114: {fileID: 114000013280033830}
+  - 114: {fileID: 114000010581570614}
   m_Layer: 5
   m_Name: ShotsLeftText
   m_TagString: shotsLeftText
@@ -96,6 +99,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0 av 0
+--- !u!114 &114000010581570614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013765095236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ec1e1981f0c4ac5873992aef091f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000011737548156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +180,28 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 10 shots left
+--- !u!114 &114000013716601660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013401067120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9369a698ab924b57acb4a95cf455882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000014016442572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010093968426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd1dec1cfae743c392080c1e7a2a88c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222000010740271220
 CanvasRenderer:
   m_ObjectHideFlags: 1
