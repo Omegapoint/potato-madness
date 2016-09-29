@@ -397,7 +397,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eb9be87d7adfa4f10a6196c4064a66c6, type: 3}
   - {fileID: 8300000, guid: f0227b1d7c98248fb9cc6b68159126e4, type: 3}
   - {fileID: 8300000, guid: 873ad8e6a55df4ccdac28cd22f322951, type: 3}
-  shotForce: 3000
+  shotForce: 1500
 --- !u!82 &1990665692
 AudioSource:
   m_ObjectHideFlags: 0
