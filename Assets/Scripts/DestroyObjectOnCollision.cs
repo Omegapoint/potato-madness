@@ -15,6 +15,7 @@ public class DestroyObjectOnCollision : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "block") {
+			col.gameObject.tag = "Untagged";
 			EventManager.TriggerEvent ("targetKnockedDown");
 			Debug.Log ("One block have been knocked down.");
 		}
