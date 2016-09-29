@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour {
 	}
 		
 	public void StartGame() {
-		Debug.Log ("Starting game called");
 		SceneAsset scene = CurrentLevel ().sceneAsset;
 		SceneManager.LoadScene (scene.name);
 	}

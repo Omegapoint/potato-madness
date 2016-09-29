@@ -8,7 +8,6 @@ public class LevelManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("In LevelManager.Start()");
 		level = GameManager.gm.CurrentLevel ();
 
 		RenderSettings.skybox = level.skybox;
