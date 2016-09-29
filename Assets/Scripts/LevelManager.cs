@@ -20,7 +20,6 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void ShotFired() {
-		Debug.Log ("ShotFired LevelManager");
 		numberOfPotatoesShot++;
 		if (numberOfPotatoesShot == level.numberOfBalls) {
 			GameManager.gm.EndGame ();

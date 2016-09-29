@@ -28,7 +28,6 @@ public class ShotsLeft : MonoBehaviour {
 	void ShotFired ()
 	{
 		Text scoreText = gameObject.GetComponent<Text>();
-		Debug.Log ("ShotFired Function was called!");
 		UpdateText ();
 	}
 }
