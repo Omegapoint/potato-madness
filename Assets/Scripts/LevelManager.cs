@@ -9,16 +9,6 @@ public class LevelManager : MonoBehaviour {
 	private Canvas scoreCanvas;
 	private int numberOfPotatoesShot;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	void OnEnable ()
 	{
 		EventManager.StartListening ("shotFired", ShotFired);
@@ -40,21 +30,10 @@ public class LevelManager : MonoBehaviour {
 	public int ShotsLeft() {
 		return level.numberOfBalls - numberOfPotatoesShot;
 	}
-
-	public void Load(GameLevel level) {
-		this.level = level;
-
-		StartCoroutine(LoadNewScene());
-	}
-
-
-	IEnumerator LoadNewScene() {
-		Scene scene = SceneManager.GetSceneByName("LevelScene");
-		AsyncOperation async = SceneManager.LoadSceneAsync("LevelScene");
-
-		while (!async.isDone) {
-			yield return null;
-		}
+		
+	// Use this for initialization
+	void Start () {
+		level = GameManager.gm.CurrentLevel ();
 
 		RenderSettings.skybox = level.skybox;
 		GameObject table = GameObject.Find ("Table");
@@ -63,7 +42,13 @@ public class LevelManager : MonoBehaviour {
 		boxes.transform.parent = table.transform;
 		boxes.transform.position = table.transform.position;
 		boxes.transform.localScale = level.levelBlocks.transform.localScale;
-
-		scoreCanvas = (Canvas)Instantiate (level.scoreCanvas, Vector3.zero, Quaternion.identity);
 	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+		
+
+
 }

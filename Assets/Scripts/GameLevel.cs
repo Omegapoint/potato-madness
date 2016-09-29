@@ -12,4 +12,6 @@ public class GameLevel : ScriptableObject {
 	public GameObject levelBlocks;
 	public Canvas scoreCanvas;
 
+	public SceneAsset sceneAsset;
+
 }

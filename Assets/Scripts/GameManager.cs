@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Linq;
@@ -9,8 +10,6 @@ public class GameManager : MonoBehaviour {
 	public static GameManager gm;
 
 	public bool gameOver = false;
-
-	public LevelManager currentLevel;
 
 	public GameLevel[] levels;
 
@@ -36,7 +35,14 @@ public class GameManager : MonoBehaviour {
 			gm = this.gameObject.GetComponent<GameManager>();
 		}
 	}
-		
+
+	public void ShotFired() {
+		numberOfPotatoesShot++;
+		if (numberOfPotatoesShot == CurrentLevel().numberOfBalls) {
+			EndGame ();
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		// shotsLeftText.text = (numberOfAvailabePotatoes - numberOfPotatoesShot)  + " shots left";
@@ -44,11 +50,11 @@ public class GameManager : MonoBehaviour {
 		// scoreText.text = (totalNumberOfBricks - currentNumberOfBricks) + " of " + totalNumberOfBricks;
 	}
 
-	GameLevel CurrentLevel() {
+	public GameLevel CurrentLevel() {
 		return levels [currentLevelIndex];
 	}
 
-	public void EndGame() {
+	void EndGame() {
 		gameOver = true;
 		restartGameButton.SetActive (true);
 	}
@@ -61,19 +67,17 @@ public class GameManager : MonoBehaviour {
 		startGameButton = GameObject.FindGameObjectWithTag("startGameButton");
 		restartGameButton = GameObject.FindGameObjectWithTag ("restartGameButton");
 	}
-		
+
 	public void StartGame() {
-		currentLevel = gameObject.GetComponent<LevelManager> ();
-		if (currentLevel == null) {
-			currentLevel = gameObject.AddComponent<LevelManager> ();
-		}
-		Debug.Log (currentLevel);
-		currentLevel.Load (levels [currentLevelIndex]);
+		SceneAsset scene = CurrentLevel ().sceneAsset;
+		SceneManager.LoadScene (scene.name);
 	}
 
 	void OnSceneLoaded (Scene scene, Scene scene2) {
 		UpdateGameState ();
 	}
+
+
 
 	// TODO Cleanup, this is getting messy
 	private void UpdateGameState() {
@@ -95,10 +99,8 @@ public class GameManager : MonoBehaviour {
 			score.SetActive (true);
 			shotsLeft.SetActive (true);
 		}
-
 		
 		shotsLeftText = shotsLeft.GetComponent<Text>();
-
 		
 		shotsLeftText.enabled = !gameOver && activeSceneIndex >= level1Index;
 		*/
@@ -107,5 +109,6 @@ public class GameManager : MonoBehaviour {
 			scoreText.enabled = !gameOver && currentLevelIndex >= level1Index;
 		}
 	}
+		
 		
 }

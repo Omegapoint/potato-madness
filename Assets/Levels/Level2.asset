@@ -17,3 +17,4 @@ MonoBehaviour:
     type: 2}
   scoreCanvas: {fileID: 223000011566195726, guid: 229efff3c62b74419b541eae42518798,
     type: 2}
+  sceneAsset: {fileID: 102900000, guid: 70a1b519f691c40cd8f580b16dcf06c0, type: 3}
