@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -12,6 +11,6 @@ public class GameLevel : ScriptableObject {
 	public GameObject levelBlocks;
 	public Canvas scoreCanvas;
 
-	public SceneAsset sceneAsset;
+	public string sceneAssetName;
 
 }

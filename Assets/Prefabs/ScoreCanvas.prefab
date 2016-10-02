@@ -40,7 +40,6 @@ GameObject:
   - 223: {fileID: 223000011566195726}
   - 114: {fileID: 114000011986887850}
   - 114: {fileID: 114000011737548156}
-  - 114: {fileID: 114000013716601660}
   m_Layer: 5
   m_Name: ScoreCanvas
   m_TagString: Untagged
@@ -180,17 +179,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 10 shots left
---- !u!114 &114000013716601660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013401067120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9369a698ab924b57acb4a95cf455882, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000014016442572
 MonoBehaviour:
   m_ObjectHideFlags: 1

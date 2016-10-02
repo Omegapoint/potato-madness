@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Linq;
@@ -50,8 +49,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void StartGame() {
-		SceneAsset scene = CurrentLevel ().sceneAsset;
-		SceneManager.LoadScene (scene.name);
+		string sceneName = CurrentLevel ().sceneAssetName;
+		SceneManager.LoadScene (sceneName);
 	}
 
 }
