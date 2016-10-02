@@ -38,34 +38,13 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void InitiateNextLevel() {
-		UnityAction action = new UnityAction (NextLevel);
-		CreateEndLevelSplash (action, "Next Level", "You've made it to the next level!");
+		EndLevelSplash.Create (new UnityAction (NextLevel), "Next Level", "You've made it to the next level!");
 	}
 
 	void InitiateFailedLevel() {
-		UnityAction action = new UnityAction (FailedLevel);
-		CreateEndLevelSplash (action, "Restart", "Game Over");
+		EndLevelSplash.Create (new UnityAction (FailedLevel), "Restart", "Game Over");
 	}
-		
-	void CreateEndLevelSplash(UnityAction action, string buttonText, string splashText) {
-		GameObject canvasPrefab = Resources.Load ("Prefab/EndLevel/Canvas") as GameObject;
-		GameObject buttonPrefab = Resources.Load ("Prefab/EndLevel/Button") as GameObject;
-		GameObject textPrefab = Resources.Load ("Prefab/EndLevel/Text") as GameObject;
-
-		GameObject canvas = Instantiate (canvasPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-
-		var buttonIcon = Instantiate(buttonPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-		buttonIcon.GetComponentInChildren<Text>().text = buttonText;
-		var button = buttonIcon.GetComponent<Button>();
-		button.onClick.AddListener(action);
-		buttonIcon.transform.SetParent (canvas.transform, false);
-
-		GameObject textContainer = Instantiate (textPrefab, new Vector3 (0, 60, 0), Quaternion.identity) as GameObject;
-		Text text = textContainer.GetComponent<Text>();
-		text.text = splashText;
-		textContainer.transform.SetParent (canvas.transform, false);
-	}
-		
+				
 	public void NextLevel() {
 		GameManager.gm.NextLevel ();
 	}

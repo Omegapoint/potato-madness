@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class KeyButton : MonoBehaviour {
 
-	public KeyCode key;
+	public string key;
 
 	public Button button {get; private set;}
 
@@ -28,9 +28,9 @@ public class KeyButton : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(key)) {
+		if (Input.GetButtonDown(key)) {
 			Down();
-		} else if (Input.GetKeyUp(key)) {
+		} else if (Input.GetButtonUp(key)) {
 			Up();
 		}
 	}
