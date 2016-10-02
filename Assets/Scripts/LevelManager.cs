@@ -25,15 +25,45 @@ public class LevelManager : MonoBehaviour {
 	void ShotFired() {
 		numberOfPotatoesShot++;
 		if (numberOfPotatoesShot == level.numberOfBalls) {
-			GameManager.gm.EndGame ();
+			InitiateFailedLevel ();
 		}
 	}
 
 	void TargetKnockedDown() {
 		numberOfTargetsKnockedDown++;
 		if (numberOfTargetsKnockedDown == startingNumberOfTargets) {
-			GameManager.gm.NextLevel ();
+			InitiateNextLevel ();
 		}
+	}
+
+	void InitiateNextLevel() {
+		GameObject canvasPrefab = Resources.Load ("Prefab/EndLevel/Canvas") as GameObject;
+		GameObject buttonPrefab = Resources.Load ("Prefab/EndLevel/Button") as GameObject;
+		GameObject textPrefab = Resources.Load ("Prefab/EndLevel/Text") as GameObject;
+
+		GameObject canvas = Instantiate (canvasPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+
+		var buttonIcon = Instantiate(buttonPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		var button = buttonIcon.GetComponent<Button>();
+		button.onClick.AddListener(NextLevel);
+		buttonIcon.transform.SetParent (canvas.transform, false);
+
+		GameObject textContainer = Instantiate (textPrefab, new Vector3 (0, 60, 0), Quaternion.identity) as GameObject;
+		Text text = textContainer.GetComponent<Text>();
+		text.text = "Congratulations, you've made it to the next level!";
+		textContainer.transform.SetParent (canvas.transform, false);
+	}
+		
+	void InitiateFailedLevel() {
+		// TODO Do stuff
+	}
+
+	public void NextLevel() {
+		GameManager.gm.NextLevel ();
+	}
+
+	public void FailedLevel() {
+		GameManager.gm.EndGame ();
 	}
 
 	public int ShotsLeft() {
