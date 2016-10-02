@@ -41,6 +41,11 @@ public class LevelManager : MonoBehaviour {
 		UnityAction action = new UnityAction (NextLevel);
 		CreateEndLevelSplash (action, "Next Level", "You've made it to the next level!");
 	}
+
+	void InitiateFailedLevel() {
+		UnityAction action = new UnityAction (FailedLevel);
+		CreateEndLevelSplash (action, "Restart", "Game Over");
+	}
 		
 	void CreateEndLevelSplash(UnityAction action, string buttonText, string splashText) {
 		GameObject canvasPrefab = Resources.Load ("Prefab/EndLevel/Canvas") as GameObject;
@@ -60,13 +65,7 @@ public class LevelManager : MonoBehaviour {
 		text.text = splashText;
 		textContainer.transform.SetParent (canvas.transform, false);
 	}
-
-
-	void InitiateFailedLevel() {
-		UnityAction action = new UnityAction (NextLevel);
-		CreateEndLevelSplash (action, "Restart", "Game Over");
-	}
-
+		
 	public void NextLevel() {
 		GameManager.gm.NextLevel ();
 	}
