@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager gm;
 
-	public string welcomeScene;
-	public string creditsScene;
+	public Object welcomeScene;
+	public Object creditsScene;
 	public GameLevel[] levels;
 
 	private int currentLevelIndex = 0;
@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver() {
 		currentLevelIndex = 0;
-		SceneManager.LoadScene(welcomeScene);
+		SceneManager.LoadScene(welcomeScene.name);
 	}
 
 	public void RollCredits() {
-		SceneManager.LoadScene (creditsScene);
+		SceneManager.LoadScene (creditsScene.name);
 	}
 
 	void Awake() {

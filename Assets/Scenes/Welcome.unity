@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5257c243397ef4591a85dd4367de4623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  welcomeScene: Welcome
-  creditsScene: Credits
+  welcomeScene: {fileID: 102900000, guid: 69f611b8e1a1a41c79ff31d4dd175099, type: 3}
+  creditsScene: {fileID: 102900000, guid: 60a1f0520b4a34735992d73c2c03545c, type: 3}
   levels:
   - {fileID: 11400000, guid: bceded0de0c5e4e21bef34977b691012, type: 2}
   - {fileID: 11400000, guid: 8a2c26a20c0fb4de8920ef7ccff5f6f4, type: 2}
