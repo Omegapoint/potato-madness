@@ -38,7 +38,11 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void InitiateNextLevel() {
-		EndLevelSplash.Create (new UnityAction (NextLevel), "Next Level", "You've made it to the next level!");
+		if (GameManager.gm.IsFinalLevel()) {
+			EndLevelSplash.Create (new UnityAction (NextLevel), "Roll credits", "Congratulations, you beat the game!");
+		} else {
+			EndLevelSplash.Create (new UnityAction (NextLevel), "Next Level", "You've made it to the next level!");
+		}
 	}
 
 	void InitiateFailedLevel() {
@@ -50,7 +54,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void FailedLevel() {
-		GameManager.gm.EndGame ();
+		GameManager.gm.GameOver ();
 	}
 
 	public int ShotsLeft() {

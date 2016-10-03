@@ -332,6 +332,8 @@ GameObject:
   - 222: {fileID: 947925033}
   - 114: {fileID: 947925032}
   - 114: {fileID: 947925031}
+  - 114: {fileID: 947925034}
+  - 114: {fileID: 947925035}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -432,6 +434,29 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 947925029}
+--- !u!114 &947925034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947925029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f39eb63d5c746b1bb5bb38353bd6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Fire1
+--- !u!114 &947925035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947925029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee09af620f734af08f500fce1a97767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &999461978
 GameObject:
   m_ObjectHideFlags: 0

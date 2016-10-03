@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager gm;
 
-	public bool gameOver = false;
-
+	public string welcomeScene;
+	public string creditsScene;
 	public GameLevel[] levels;
 
 	private int currentLevelIndex = 0;
@@ -36,12 +36,21 @@ public class GameManager : MonoBehaviour {
 			currentLevelIndex++;
 			StartGame ();
 		} else {
-			EndGame ();
+			RollCredits ();
 		}
 	}
 
-	public void EndGame() {
-		gameOver = true;
+	public bool IsFinalLevel() {
+		return currentLevelIndex + 1 == levels.Count ();
+	}
+
+	public void GameOver() {
+		currentLevelIndex = 0;
+		SceneManager.LoadScene(welcomeScene);
+	}
+
+	public void RollCredits() {
+		SceneManager.LoadScene (creditsScene);
 	}
 
 	void Awake() {
