@@ -19,8 +19,7 @@ public class FireScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		if(Input.GetButton("Fire1") || Input.GetKeyDown("z")) { //true on: iPad tap, left mouse button, left Control, and the "z" key on the keyboard (default Input Manager settings)
-		if (Input.GetButtonDown ("Fire1")) {
+		if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown("Fire2")) {
 			GameObject newPotato = (GameObject)Instantiate (potatoPrefab, spawnPoint.transform.position, 
 				Quaternion.Euler (spawnPoint.transform.eulerAngles.x, spawnPoint.transform.eulerAngles.y, spawnPoint.transform.eulerAngles.z));
 			newPotato.transform.eulerAngles = firetube.transform.eulerAngles;
