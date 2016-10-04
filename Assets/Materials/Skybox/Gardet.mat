@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: kontoret
+  m_Name: Gardet
   m_Shader: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -18,7 +18,7 @@ Material:
     - first:
         name: _BackTex
       second:
-        m_Texture: {fileID: 2800000, guid: beef789be422441ff89f2af080a62ef9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 46ba8ad3470394b4b916a0d8d47bf423, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -48,7 +48,7 @@ Material:
     - first:
         name: _DownTex
       second:
-        m_Texture: {fileID: 2800000, guid: 4d4794990c951491dbcef7d5433b7e9e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 68876c2fbde9142d3be27be52a49fb10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -60,13 +60,13 @@ Material:
     - first:
         name: _FrontTex
       second:
-        m_Texture: {fileID: 2800000, guid: ea487b973351940e2bfdd061e2b33b93, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5398fff5a51924104987db7ff00ae2b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _LeftTex
       second:
-        m_Texture: {fileID: 2800000, guid: ae3e733c771244c7288db2d281aa7fad, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6f758366d0fc94facb82082a9a27e9f2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -96,13 +96,13 @@ Material:
     - first:
         name: _RightTex
       second:
-        m_Texture: {fileID: 2800000, guid: d11fec800230f465d888bc7a1a976e2b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 972c9185d433b4df49f9a3d7b6108753, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _UpTex
       second:
-        m_Texture: {fileID: 2800000, guid: 9b49e300df21a430392b09fee3b1dfae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2c2479f1675b544d0b6ea037e825d162, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -144,7 +144,7 @@ Material:
       second: 0.02
     - first:
         name: _Rotation
-      second: 242
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 0
