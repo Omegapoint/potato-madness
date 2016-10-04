@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfBalls: 10
   skybox: {fileID: 2100000, guid: 8db4cf8edb0d243689142dfa9a291ba0, type: 2}
-  levelBlocks: {fileID: 1000014147831484, guid: 466d7340549664d43863ad1f63bfd5e9,
+  levelBlocks: {fileID: 1000010973263026, guid: 466d7340549664d43863ad1f63bfd5e9,
     type: 2}
   scoreCanvas: {fileID: 223000011566195726, guid: 229efff3c62b74419b541eae42518798,
     type: 2}

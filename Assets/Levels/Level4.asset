@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9de78bbc261742e796e68bfdc003614, type: 3}
   m_Name: Level4
   m_EditorClassIdentifier: 
-  numberOfBalls: 2
+  numberOfBalls: 8
   skybox: {fileID: 2100000, guid: 337f5015368af48129f04a83adc71041, type: 2}
-  levelBlocks: {fileID: 1000010411293666, guid: ec10b13e0c0ce4521828a2904619f36b,
+  levelBlocks: {fileID: 1000012017213972, guid: ec10b13e0c0ce4521828a2904619f36b,
     type: 2}
   scoreCanvas: {fileID: 223000011566195726, guid: 229efff3c62b74419b541eae42518798,
     type: 2}
