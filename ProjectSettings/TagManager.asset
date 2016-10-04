@@ -10,6 +10,8 @@ TagManager:
   - shotsLeftText
   - restartGameButton
   - startGameButton
+  - movingBlock
+  - stationaryBlock
   layers:
   - Default
   - TransparentFX
