@@ -13,6 +13,10 @@ public class LevelManager : MonoBehaviour {
 	private int startingNumberOfTargets;
 	private bool activePlay = true;
 
+
+	Vector2 touchStartPos;
+	float touchStartTime;
+
 	void OnEnable ()
 	{
 		EventManager.StartListening ("targetKnockedDown", TargetKnockedDown);
@@ -93,15 +97,37 @@ public class LevelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2")) {
-			if (numberOfPotatosShot < level.numberOfBalls && activePlay) {
-				numberOfPotatosShot++;
-				EventManager.TriggerEvent ("shotFired");
+		if (Input.touchCount > 0) {
+			Touch touch = Input.touches[0];
+
+			switch (touch.phase) {
+			case TouchPhase.Began:
+				touchStartPos = touch.position;
+				touchStartTime = Time.time;
+				break;
+			case TouchPhase.Ended:
+				Debug.Log ("time: " + (Time.time - touchStartTime));
+				if ((Time.time - touchStartTime) < 0.5f && (touch.position - touchStartPos).magnitude < 1.0f) {
+					// If the touch is short enough and the finger hasn't moved that moch we can fire the gun
+					fire();
+				}
+				break;
 			}
-		}
-		if (numberOfPotatosDestroyed == level.numberOfBalls && !MovingBlocks()) {
-			InitiateFailedLevel ();
+				
+		} else {
+			if (Input.GetButtonDown ("Fire1")) {
+				if (numberOfPotatosShot < level.numberOfBalls && activePlay) {
+					fire ();
+				}
+			}
+			if (numberOfPotatosDestroyed == level.numberOfBalls && !MovingBlocks ()) {
+				InitiateFailedLevel ();
+			}
 		}
 	}
 
+	void fire() {
+		numberOfPotatosShot++;
+		EventManager.TriggerEvent ("shotFired");
+	}
 }
