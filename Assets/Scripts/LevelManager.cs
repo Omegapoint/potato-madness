@@ -34,9 +34,6 @@ public class LevelManager : MonoBehaviour {
 
 	void PotatoDestroyed() {
 		numberOfPotatosDestroyed++;
-		if (numberOfPotatosDestroyed == level.numberOfBalls) {
-			InitiateFailedLevel ();
-		}
 	}
 
 	void InitiateNextLevel() {
@@ -52,7 +49,12 @@ public class LevelManager : MonoBehaviour {
 		activePlay = false;
 		EndLevelSplash.Create (new UnityAction (FailedLevel), "Restart", "Game Over");
 	}
-				
+		
+	private bool MovingBlocks() {
+		GameObject[] movingBlocks = GameObject.FindGameObjectsWithTag ("movingBlock");
+		return movingBlocks.Length > 0;
+	}
+
 	public void NextLevel() {
 		GameManager.gm.NextLevel ();
 	}
@@ -96,6 +98,9 @@ public class LevelManager : MonoBehaviour {
 				numberOfPotatosShot++;
 				EventManager.TriggerEvent ("shotFired");
 			}
+		}
+		if (numberOfPotatosDestroyed == level.numberOfBalls && !MovingBlocks()) {
+			InitiateFailedLevel ();
 		}
 	}
 
