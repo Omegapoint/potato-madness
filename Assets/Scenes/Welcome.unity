@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: Fire1
+  altKey: Fire2
 --- !u!1 &280581263
 GameObject:
   m_ObjectHideFlags: 0

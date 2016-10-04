@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class KeyButton : MonoBehaviour {
 
 	public string key;
+	public string altKey;
 
 	public Button button {get; private set;}
 
@@ -28,9 +29,9 @@ public class KeyButton : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown(key)) {
+		if (Input.GetButtonDown(key) || Input.GetButtonDown(altKey)) {
 			Down();
-		} else if (Input.GetButtonUp(key)) {
+		} else if (Input.GetButtonUp(key) || Input.GetButtonUp(altKey)) {
 			Up();
 		}
 	}

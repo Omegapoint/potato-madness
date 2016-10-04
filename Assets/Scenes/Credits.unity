@@ -446,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: Fire1
+  altKey: Fire2
 --- !u!114 &947925035
 MonoBehaviour:
   m_ObjectHideFlags: 0
