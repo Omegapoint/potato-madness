@@ -120,9 +120,7 @@ public class LevelManager : MonoBehaviour {
 				
 		} else {
 			if (Input.GetButtonDown ("Fire1")) {
-				if (numberOfPotatosShot < level.numberOfBalls && activePlay) {
-					fire ();
-				}
+				fire ();
 			}
 		}
 		if (numberOfPotatosDestroyed == level.numberOfBalls && !MovingBlocks () && activePlay) {
@@ -131,7 +129,9 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void fire() {
-		numberOfPotatosShot++;
-		EventManager.TriggerEvent ("shotFired");
+		if (numberOfPotatosShot < level.numberOfBalls && activePlay) {
+			numberOfPotatosShot++;
+			EventManager.TriggerEvent ("shotFired");
+		}
 	}
 }
