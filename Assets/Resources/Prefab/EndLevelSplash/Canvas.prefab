@@ -57,6 +57,7 @@ GameObject:
   - 114: {fileID: 114000010766138534}
   - 114: {fileID: 114000012735358198}
   - 114: {fileID: 114000010530435994}
+  - 114: {fileID: 114000013696312846}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -239,7 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: Fire1
-  altKey: Fire2
 --- !u!114 &114000012735358198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +289,27 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Next Level
+--- !u!114 &114000013696312846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013998422278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!222 &222000011439558046
 CanvasRenderer:
   m_ObjectHideFlags: 1
