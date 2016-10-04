@@ -51,8 +51,12 @@ public class LevelManager : MonoBehaviour {
 	}
 		
 	private bool MovingBlocks() {
-		GameObject[] movingBlocks = GameObject.FindGameObjectsWithTag ("movingBlock");
-		return movingBlocks.Length > 0;
+		GameObject[] movingBlocks = GameObject.FindGameObjectsWithTag ("block");
+		bool hasMovement = false;
+		foreach (GameObject block in movingBlocks) {
+			hasMovement = hasMovement || block.GetComponent<BlockScript> ().IsMoving;	
+		}
+		return hasMovement;
 	}
 
 	public void NextLevel() {
@@ -99,7 +103,7 @@ public class LevelManager : MonoBehaviour {
 				EventManager.TriggerEvent ("shotFired");
 			}
 		}
-		if (numberOfPotatosDestroyed == level.numberOfBalls && !MovingBlocks()) {
+		if (numberOfPotatosDestroyed == level.numberOfBalls && !MovingBlocks() && activePlay) {
 			InitiateFailedLevel ();
 		}
 	}

@@ -17,6 +17,10 @@ public class BlockScript : MonoBehaviour {
 		get{ return isMoving; }
 	}
 
+	void Start() {
+		objectTransfom = gameObject.transform;
+	}
+
 	void Awake()
 	{
 		//For good measure, set the previous locations
@@ -34,7 +38,6 @@ public class BlockScript : MonoBehaviour {
 			previousLocations[i] = previousLocations[i+1];
 		}
 		previousLocations[previousLocations.Length - 1] = objectTransfom.position;
-
 		//Check the distances between the points in your previous locations
 		//If for the past several updates, there are no movements smaller than the threshold,
 		//you can most likely assume that the object is not moving
@@ -43,12 +46,10 @@ public class BlockScript : MonoBehaviour {
 			if(Vector3.Distance(previousLocations[i], previousLocations[i + 1]) >= noMovementThreshold)
 			{
 				isMoving = true;
-				gameObject.tag = "movingBlock";
 			}
 			else
 			{
 				isMoving = false;
-				gameObject.tag = "stationaryBlock";
 				break;
 			}
 		}
