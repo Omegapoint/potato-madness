@@ -92,7 +92,7 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2")) {
-			if (numberOfPotatosShot < level.numberOfBalls) {
+			if (numberOfPotatosShot < level.numberOfBalls && activePlay) {
 				numberOfPotatosShot++;
 				EventManager.TriggerEvent ("shotFired");
 			}
