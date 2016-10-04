@@ -13,4 +13,8 @@ public class DestroyAfterTime : MonoBehaviour {
 	void Update () {
 		Destroy(gameObject, timeBeforeDestruction);
 	}
+
+	void OnDestroy() {
+		EventManager.TriggerEvent ("potatoDestroyed");
+	}
 }

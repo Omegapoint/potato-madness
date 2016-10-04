@@ -7,27 +7,22 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	private GameLevel level;
-	private int numberOfPotatoesShot;
+	private int numberOfPotatosShot;
+	private int numberOfPotatosDestroyed;
 	private int numberOfTargetsKnockedDown;
 	private int startingNumberOfTargets;
+	private bool activePlay = true;
 
 	void OnEnable ()
 	{
-		EventManager.StartListening ("shotFired", ShotFired);
 		EventManager.StartListening ("targetKnockedDown", TargetKnockedDown);
+		EventManager.StartListening ("potatoDestroyed", PotatoDestroyed);
 	}
 
 	void OnDisable ()
 	{
-		EventManager.StopListening ("shotFired", ShotFired);
 		EventManager.StopListening ("targetKnockedDown", TargetKnockedDown);
-	}
-
-	void ShotFired() {
-		numberOfPotatoesShot++;
-		if (numberOfPotatoesShot == level.numberOfBalls) {
-			InitiateFailedLevel ();
-		}
+		EventManager.StopListening ("potatoDestroyed", PotatoDestroyed);
 	}
 
 	void TargetKnockedDown() {
@@ -37,7 +32,15 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
+	void PotatoDestroyed() {
+		numberOfPotatosDestroyed++;
+		if (numberOfPotatosDestroyed == level.numberOfBalls) {
+			InitiateFailedLevel ();
+		}
+	}
+
 	void InitiateNextLevel() {
+		activePlay = false;
 		if (GameManager.gm.IsFinalLevel()) {
 			EndLevelSplash.Create (new UnityAction (NextLevel), "Roll credits", "Congratulations, you beat the game!");
 		} else {
@@ -46,6 +49,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void InitiateFailedLevel() {
+		activePlay = false;
 		EndLevelSplash.Create (new UnityAction (FailedLevel), "Restart", "Game Over");
 	}
 				
@@ -58,7 +62,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public int ShotsLeft() {
-		return level.numberOfBalls - numberOfPotatoesShot;
+		return level.numberOfBalls - numberOfPotatosShot;
 	}
 
 	public int TargetsLeft() {
@@ -87,7 +91,12 @@ public class LevelManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetButtonDown ("Fire1") || Input.GetButtonDown ("Fire2")) {
+			if (numberOfPotatosShot < level.numberOfBalls) {
+				numberOfPotatosShot++;
+				EventManager.TriggerEvent ("shotFired");
+			}
+		}
 	}
 
 }
