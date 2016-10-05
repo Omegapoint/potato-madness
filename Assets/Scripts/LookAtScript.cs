@@ -37,7 +37,7 @@ public class LookAtScript : MonoBehaviour {
 			case TouchPhase.Moved:
 				transform.RotateAround (point, new Vector3 (0.0f, startPos.x - touch.position.x, 0.0f), 6);
 
-				float yDistance = (touch.position.y - startPos.y) / 2.0f;
+				float yDistance = (touch.position.y - startPos.y) / 5.0f;
 				point.Set (point.x, point.y + yDistance, point.z);
 
 				startPos = touch.position;
