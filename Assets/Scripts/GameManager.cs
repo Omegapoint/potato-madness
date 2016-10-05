@@ -46,11 +46,13 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver() {
 		currentLevelIndex = 0;
-		SceneManager.LoadScene(welcomeScene.name);
+		//SceneManager.LoadScene(welcomeScene.name);
+		SceneManager.LoadScene("Welcome");
 	}
 
 	public void RollCredits() {
-		SceneManager.LoadScene (creditsScene.name);
+		//SceneManager.LoadScene (creditsScene.name);
+		SceneManager.LoadScene ("Credits");
 	}
 
 	void Awake() {
