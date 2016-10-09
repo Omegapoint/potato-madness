@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firetube: {fileID: 814537982}
   spawnPoint: {fileID: 814537981}
-  potatoPrefab: {fileID: 1000014082844530, guid: bba0e075ceec34460b885cb97cfb491d,
+  potatoPrefab: {fileID: 1000010341225076, guid: 0f3dfbf106b694eab842914fa060eed9,
     type: 2}
   fireSoundClips:
   - {fileID: 8300000, guid: eb9be87d7adfa4f10a6196c4064a66c6, type: 3}
