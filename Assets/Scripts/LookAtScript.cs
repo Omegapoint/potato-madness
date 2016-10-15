@@ -11,7 +11,7 @@ public class LookAtScript : MonoBehaviour {
 
 	private Vector3 point;//the coord to the point where the camera looks at
 
-	Vector2 startPos;
+	Vector2 previousPos;
 
 
 	void Start () {//Set up things on the start method
@@ -31,16 +31,20 @@ public class LookAtScript : MonoBehaviour {
 
 			switch (touch.phase) {
 			case TouchPhase.Began:
-				startPos = touch.position;
+				previousPos = touch.position;
 				break;
 
 			case TouchPhase.Moved:
-				transform.RotateAround (point, new Vector3 (0.0f, startPos.x - touch.position.x, 0.0f), 6);
+				// Turn around
+				transform.RotateAround(point, Vector3.up, (previousPos.x - touch.position.x) * Time.deltaTime * 10);
+				//transform.RotateAround (point, new Vector3 (0.0f, previousPos.x - touch.position.x, 0.0f), 100*Time.deltaTime);
 
-				float yDistance = (touch.position.y - startPos.y) / 5.0f;
+				float yDistance = (touch.position.y - previousPos.y) / 15.0f;
+
+				// Look up and down
 				point.Set (point.x, point.y + yDistance, point.z);
 
-				startPos = touch.position;
+				previousPos = touch.position;
 				break;
 			}
 		}
