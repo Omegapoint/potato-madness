@@ -252,12 +252,12 @@ Prefab:
     - target: {fileID: 54000010625465732, guid: 696e65c4f2ee240d591e43b2b5739279,
         type: 2}
       propertyPath: m_Interpolate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 54000010625465732, guid: 696e65c4f2ee240d591e43b2b5739279,
         type: 2}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000012793997146, guid: 696e65c4f2ee240d591e43b2b5739279, type: 2}
       propertyPath: m_LocalScale.y
@@ -377,7 +377,7 @@ MonoBehaviour:
   target: {fileID: 1723355704}
   rotationStep: 3
   positiveVerticalViewLimit: 8
-  negativeVerticalViewLimit: -12
+  negativeVerticalViewLimit: -15
 --- !u!114 &1990665691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,13 +391,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firetube: {fileID: 814537982}
   spawnPoint: {fileID: 814537981}
-  potatoPrefab: {fileID: 1000010341225076, guid: 0f3dfbf106b694eab842914fa060eed9,
+  potatoPrefab: {fileID: 1000013510019026, guid: ebfa2192b050947f6a68bcc23b0b3109,
     type: 2}
   fireSoundClips:
   - {fileID: 8300000, guid: eb9be87d7adfa4f10a6196c4064a66c6, type: 3}
   - {fileID: 8300000, guid: f0227b1d7c98248fb9cc6b68159126e4, type: 3}
   - {fileID: 8300000, guid: 873ad8e6a55df4ccdac28cd22f322951, type: 3}
-  shotForce: 1500
+  shotForce: 1000
 --- !u!82 &1990665692
 AudioSource:
   m_ObjectHideFlags: 0
@@ -521,6 +521,11 @@ Prefab:
     - target: {fileID: 4000012405333058, guid: a08fe5e2d207b4215819230a6939c23d, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014098536598, guid: a08fe5e2d207b4215819230a6939c23d,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a08fe5e2d207b4215819230a6939c23d, type: 2}

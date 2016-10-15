@@ -11,6 +11,6 @@ public class GameLevel : ScriptableObject {
 	public GameObject levelBlocks;
 	public Canvas scoreCanvas;
 
-	public string sceneAssetName;
+	public string sceneAssetName = "LevelScene";
 
 }
