@@ -46,6 +46,11 @@ public class BlockScript : MonoBehaviour {
 			if(Vector3.Distance(previousLocations[i], previousLocations[i + 1]) >= noMovementThreshold)
 			{
 				isMoving = true;
+				// Safe guard if a object misses the death plane.
+				if (gameObject.transform.position.y < -100) {
+					Destroy (gameObject);
+					EventManager.TriggerEvent ("targetKnockedDown");
+				}
 			}
 			else
 			{
