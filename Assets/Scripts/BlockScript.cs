@@ -11,6 +11,8 @@ public class BlockScript : MonoBehaviour {
 	Vector3[] previousLocations = new Vector3[noMovementFrames];
 	private bool isMoving;
 
+	private bool isDestroyed = false;
+
 	//Let other scripts see if the object is moving
 	public bool IsMoving
 	{
@@ -47,8 +49,9 @@ public class BlockScript : MonoBehaviour {
 			{
 				isMoving = true;
 				// Safe guard if a object misses the death plane.
-				if (gameObject.transform.position.y < -100) {
+				if (gameObject.transform.position.y < -200 && !isDestroyed) {
 					Destroy (gameObject);
+					isDestroyed = true;
 					EventManager.TriggerEvent ("targetKnockedDown");
 				}
 			}
