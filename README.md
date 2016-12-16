@@ -1,3 +1,5 @@
+![alt text](https://github.com/Omegapoint/potato-madness/blob/master/Assets/Images/logo.png "Potato Madness")
+
 # Potato Madness
 A Unity 3D Shoot 'em up
 
